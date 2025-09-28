@@ -1,92 +1,103 @@
-# DeFi-Empire: A Simple DeFi Kingdom Clone
+# 🏛 Optical Character Recognition for Historical Documents  
 
-DeFi-Empire is a decentralized finance (DeFi) game inspired by DeFi Kingdoms. This project demonstrates how to create a blockchain-based game on the Avalanche network.
+An end-to-end OCR (Optical Character Recognition) system built using **Python, OpenCV, Tesseract, and Tkinter**, designed specifically for processing and translating historical documents.  
 
-## Features
+This project allows users to:  
 
-- **ERC20 Token Integration**: Use custom tokens to play the game.
-- **Vault Contracts**: Manage in-game assets securely.
-- **DeFi Mechanics**: Implement staking, yield farming, and more.
-
-## Prerequisites
-
-- Linux environment (WSL for Windows)
-- Avalanche CLI
-
-## Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/NikhTheTech/Defi-Empire-A-Simple-DeFI-Kingdom-Clone.git
-   cd Defi-Empire-A-Simple-DeFI-Kingdom-Clone
-   ```
-
-2. **Install dependencies and set up Avalanche CLI.**
-
-## Steps
-
-1. **Create Avalanche Subnet**:
-   ```bash
-   avalanche subnet create mysubnet
-   ```
-
-2. **Deploy Subnet**:
-   ```bash
-   avalanche subnet deploy mysubnet
-   ```
-
-3. **Configure Metamask**:
-   - Add the Avalanche network details to your Metamask wallet.
-
-4. **Deploy ERC20 and Vault Contracts using Remix**:
-   - Copy the ERC20 and Vault contract code into Remix.
-   - Deploy the contracts using Remix IDE.
-
-5. **Interact with Contracts**:
-   - Test the deployed contracts to ensure they function correctly.
+- **Upload scanned images or PDFs** of historical texts  
+- **Preprocess images** (denoising, contrast enhancement, sharpening, deskewing) for improved OCR accuracy  
+-  **Extract text** using Tesseract OCR (supports multiple languages)  
+- *Automatically detect language** of the extracted text  
+- **Translate text** into English (or other target languages)  
+- **Export results** as **PDF** or **Word (.docx)** files  
+- **Use an interactive GUI** with **light/dark mode support**  
 
 ---
 
-### Setting up Avalanche CLI and Deploying Subnet
+## 🚀 Features  
 
-1. **Install AvalancheGo**:
-   Download from [AvalancheGo Releases](https://github.com/ava-labs/avalanchego/releases) and install it.
+- **Advanced Preprocessing Pipeline**  
+  - Noise detection and removal  
+  - Contrast enhancement  
+  - Image sharpening  
+  - Automatic deskewing  
+  - Adaptive thresholding for better binarization  
 
-   ```bash
-   git clone https://github.com/ava-labs/avalanchego.git
-   
-   cd avalanchego
-   
-   ./scripts/build.sh
-   
-   ./build/avalanchego --network-id=fuji
-   ```
+- **Multi-language OCR**  
+  - Supports **English, French, Spanish, and German** (can be extended easily)  
+  - Uses `pytesseract` with custom OCR configuration for accuracy  
 
-2. **Install Avalanche-CLI**:
-   Clone and build:
+- **Automatic Language Detection & Translation**  
+  - Detects the source language using `langdetect`  
+  - Translates non-English text to English using `deep-translator`  
 
-   ```bash
-   curl -sSfL https://raw.githubusercontent.com/ava-labs/avalanche-cli/main/scripts/install.sh | sh -s
-   
-   export PATH=~/bin:$PATH
-   ```
+- **Export Options**  
+  - Save results as **PDF** (auto-incrementing filenames)  
+  - Save results as **Word document**  
 
-3. **Create and Deploy Subnet**:
+- **User-Friendly GUI**  
+  - Built with Tkinter  
+  - Upload images with a single click  
+  - View OCR output and translated output in pop-up windows  
+  - Toggle **dark mode** for better readability  
 
-   ```bash
-   avalanche subnet create mySubnet
+---
 
-   avalanche subnet list
+## ⚙️ Installation  
 
-   avalanche subnet describe mySubnet
-   
-   avalanche subnet deploy mySubnet
-   ```
+### 1️⃣ Clone the Repository  
+```
+git clone https://github.com/NikhTheTech/Optical-Character-Recognition-for-Historical-Documents
+cd Optical-Character-Recognition-for-Historical-Documents
+```
+### 2️⃣ Install Dependencies
+```
+pip install -r requirements.txt
+```
+### 3️⃣ Install Tesseract OCR
+- Windows: Download Tesseract
 
-4. **Connect MetaMask**:  
-   Use your Subnet's RPC URL in MetaMask.
+- Linux (Debian/Ubuntu):
+```
+sudo apt install tesseract-ocr
+```
+- macOS:
+```
+brew install tesseract
+```
+## 📦 Requirements
+Python 3.8+
+
+Libraries:
+
+   - nginx
+   - Copy code
+   - tkinter
+   - pillow
+   - opencv-python
+   - pytesseract
+   - deep-translator
+   - langdetect
+   - numpy
+   - fpdf
+   - python-docx
+## ▶️ Usage
+Run the application:
+```
+python main.py
+```
+1. Upload Image → Select a scanned document or image
+
+2. Perform OCR & Translate → Extracts and translates text
+
+3. Save Output → Choose PDF or Word format
+
+4. Toggle Dark Mode → Switch between light/dark UI themes
+
+##📊 Example
+| Input (Historical Document)                                                              | OCR Output (Detected Text)        | Translated Output (English) |
+| ---------------------------------------------------------------------------------------- | --------------------------------- | --------------------------- |
+| ![33](https://github.com/user-attachments/assets/687504b4-e495-4695-a5a7-ba39106d12e5)   | *"Bonjour, comment allez-vous "* | *"Hello, how are you"*     |
 
 
-## License
 
-This project is licensed under the MIT License.
